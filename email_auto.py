@@ -7,6 +7,7 @@ from tkinter import SE
 from openpyxl import load_workbook
 from dotenv import load_dotenv
 import os
+import shutil
 
 load_dotenv()
 
@@ -170,3 +171,7 @@ with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
 
         delay = random.randint(DELAY_MIN, DELAY_MAX)
         time.sleep(delay)
+
+# Move the Excel file to isSent folder after completion
+shutil.move(EXCEL_PATH, os.path.join("isSent", os.path.basename(EXCEL_PATH)))
+print(f"✅ Moved {EXCEL_PATH} to isSent folder.")
