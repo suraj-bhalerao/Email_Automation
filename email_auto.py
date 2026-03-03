@@ -21,16 +21,16 @@ RESUME_PATH = os.getenv("RESUME_PATH")
 
 # Validate required environment variables
 if not SENDER_EMAIL:
-    print("❌ Error: SENDER_EMAIL environment variable is not set.")
+    print("Error: SENDER_EMAIL environment variable is not set.")
     exit(1)
 if not APP_PASSWORD:
-    print("❌ Error: APP_PASSWORD environment variable is not set.")
+    print("Error: APP_PASSWORD environment variable is not set.")
     exit(1)
 if not EXCEL_PATH:
-    print("❌ Error: EXCEL_PATH environment variable is not set.")
+    print("Error: EXCEL_PATH environment variable is not set.")
     exit(1)
 if not RESUME_PATH:
-    print("❌ Error: RESUME_PATH environment variable is not set.")
+    print("Error: RESUME_PATH environment variable is not set.")
     exit(1)
 
 DELAY_MIN = 15    # seconds
@@ -41,7 +41,7 @@ DELAY_MAX = 120    # seconds
 SUBJECTS = [
     "Application for QA Automation Engineer | Java & Selenium",
     "QA Automation Engineer – Java, Selenium, API Testing",
-    "Exploring QA Automation Opportunities",
+    "QA Automation Test Engineer",
     "QA Automation Engineer Application",
     "Application for QA Automation / SDET Role"
 ]
@@ -53,7 +53,7 @@ Hi,
 
 I hope you’re having a good day.
 
-My name is Suraj Bhalerao, and I’m a QA Automation Engineer  with around  1.5 years of hands-on experience  in Java-based Selenium automation and API testing. I’m currently working with  Accolade Electronics Pvt Ltd , where I focus on building scalable automation frameworks and improving overall test reliability.
+I am Suraj Bhalerao, and I’m a QA Automation Engineer  with around  1.5 years of hands-on experience  in Java-based Selenium automation and API testing. I’m currently working with  Accolade Electronics Pvt Ltd , where I focus on building scalable automation frameworks and improving overall test reliability.
 
 In my current role, I design  TestNG-based automation frameworks , automate end-to-end  UI regression suites , and validate backend APIs using  Postman . I’ve also integrated automation pipelines with  CI/CD (GitHub Actions)  and enjoy working on solutions that reduce manual effort and improve release confidence.
 
@@ -64,6 +64,7 @@ You can also take a look at my work here:
 
 LinkedIn: https://www.linkedin.com/in/suraj-bhalerao27
 GitHub: https://github.com/suraj-bhalerao
+Leetcode: https://leetcode.com/u/Suraj_b_27/
 
 If there are any current or upcoming opportunities that match my profile, I’d be happy to connect and discuss further.
 
@@ -71,10 +72,6 @@ Thank you for your time and consideration.
 
 Warm regards,
 Suraj Bhalerao 
-QA Automation Engineer
-+91 9730922327
-bhaleraosurajsa@gmail.com
-
 """,
 """
 Hello,
@@ -90,16 +87,13 @@ I’m now seeking opportunities where I can continue to grow as a QA Automation 
 My resume is attached for your review. You can also explore my profile here:
 
 LinkedIn: https://www.linkedin.com/in/suraj-bhalerao27
-
 GitHub: https://github.com/suraj-bhalerao
+Leetcode: https://leetcode.com/u/Suraj_b_27/
 
 I’d be glad to connect if there’s a suitable opportunity.
 
 Kind regards,
 Suraj Bhalerao
-QA Automation Engineer
-+91 9730922327
-bhaleraosurajsa@gmail.com
 """,
 """
 Hi,
@@ -115,8 +109,8 @@ I’m actively looking for new opportunities where I can apply my automation ski
 I’ve shared my resume for your reference, and you can also check out my work below:
 
 LinkedIn: https://www.linkedin.com/in/suraj-bhalerao27
-
 GitHub: https://github.com/suraj-bhalerao
+Leetcode: https://leetcode.com/u/Suraj_b_27/
 
 If my profile seems relevant to any current or upcoming roles, I’d love to connect.
 
@@ -124,9 +118,6 @@ Thank you for your time.
 
 Best regards,
 Suraj Bhalerao
-QA Automation Engineer
-+91 9730922327
-bhaleraosurajsa@gmail.com
 """
 ]
 
@@ -140,7 +131,7 @@ with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
     sheet = wb.active
     
     if sheet is None:
-        print("❌ Error: No active sheet found in the workbook.")
+        print("Error: No active sheet found in the workbook.")
         exit()
 
     for row in sheet.iter_rows(min_row=2, values_only=True):
@@ -165,13 +156,13 @@ with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
 
         try:
             server.send_message(msg)
-            print(f"✅ Sent to {to_email} | Subject: {subject}")
+            print(f"Sent to {to_email} | Subject: {subject}")
         except Exception as e:
-            print(f"❌ Failed for {to_email}: {e}")
+            print(f"Failed for {to_email}: {e}")
 
         delay = random.randint(DELAY_MIN, DELAY_MAX)
         time.sleep(delay)
 
 # Move the Excel file to isSent folder after completion
 shutil.move(EXCEL_PATH, os.path.join("isSent", os.path.basename(EXCEL_PATH)))
-print(f"✅ Moved {EXCEL_PATH} to isSent folder.")
+print(f"Moved {EXCEL_PATH} to isSent folder.")
