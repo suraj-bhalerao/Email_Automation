@@ -11,15 +11,12 @@ import shutil
 
 load_dotenv()
 
-# ============== CONFIG =================
-# convert the variables into strings
 SENDER_EMAIL = os.getenv("SENDER_EMAIL")
 APP_PASSWORD = os.getenv("APP_PASSWORD")
 
 EXCEL_PATH = os.getenv("EXCEL_PATH")
 RESUME_PATH = os.getenv("RESUME_PATH")
 
-# Validate required environment variables
 if not SENDER_EMAIL:
     print("Error: SENDER_EMAIL environment variable is not set.")
     exit(1)
@@ -33,29 +30,25 @@ if not RESUME_PATH:
     print("Error: RESUME_PATH environment variable is not set.")
     exit(1)
 
-DELAY_MIN = 15    # seconds
-DELAY_MAX = 120    # seconds
-# =======================================
+DELAY_MIN = 15    
+DELAY_MAX = 120    
 
-# ---------- SUBJECT VARIATIONS ----------
 SUBJECTS = [
     "Application for QA Automation Engineer | Java & Selenium",
-    "QA Automation Engineer – Java, Selenium, API Testing",
+    "Automation Test Engineer",
     "QA Automation Test Engineer",
-    "QA Automation Engineer Application",
-    "Application for QA Automation / SDET Role"
+    "Application for QA Automation Engineer Role",
 ]
 
-# ---------- BODY VARIATIONS -------------
 BODIES = [
 """
 Hi,
 
 I hope you’re having a good day.
 
-I am Suraj Bhalerao, and I’m a QA Automation Engineer  with around  1.5 years of hands-on experience  in Java-based Selenium automation and API testing. I’m currently working with  Accolade Electronics Pvt Ltd , where I focus on building scalable automation frameworks and improving overall test reliability.
+I am Suraj Bhalerao, and I’m a QA Automation Engineer  with around  1.6+ years of hands-on experience  in Java-based Selenium automation and API testing. I’m currently working with  Accolade Electronics Pvt Ltd , where I focus on building scalable automation frameworks and improving overall test reliability.
 
-In my current role, I design  TestNG-based automation frameworks , automate end-to-end  UI regression suites , and validate backend APIs using  Postman . I’ve also integrated automation pipelines with  CI/CD (GitHub Actions)  and enjoy working on solutions that reduce manual effort and improve release confidence.
+In my current role, I design  TestNG-based automation frameworks , automate end-to-end  UI regression suites, and validate backend APIs using  Postman . I’ve also integrated automation pipelines with  CI/CD (GitHub Actions)  and enjoy working on solutions that reduce manual effort and improve release confidence.
 
 I’m actively exploring new opportunities where I can contribute as a QA Automation Engineer and continue growing in test automation and quality engineering. I believe my experience could be a good fit for teams that value clean automation design and strong testing fundamentals.
 
@@ -78,7 +71,7 @@ Hello,
 
 I hope you’re doing well.
 
-My name is Suraj Bhalerao, and I’m a QA Automation Engineer with 1.5 years of hands-on experience in Selenium-based automation using Java, along with API testing experience. I’m currently working with Accolade Electronics Pvt Ltd, where I contribute to building robust automation frameworks and improving testing efficiency.
+My name is Suraj Bhalerao, and I’m a QA Automation Engineer with 1.6+ years of hands-on experience in Selenium-based automation using Java, along with API testing experience. I’m currently working with Accolade Electronics Pvt Ltd, where I contribute to building robust automation frameworks and improving testing efficiency.
 
 My experience includes developing TestNG automation frameworks, executing end-to-end UI regression automation, validating APIs through Postman, and integrating automation with CI/CD pipelines via GitHub Actions. I enjoy working on automation solutions that enhance product quality and reduce manual effort.
 
@@ -100,7 +93,7 @@ Hi,
 
 I hope you’re having a great day.
 
-I’m Suraj Bhalerao, a QA Automation Engineer with around 1.5 years of experience working on Java-based Selenium automation and API testing. Currently, I work at Accolade Electronics Pvt Ltd, where I focus on creating scalable automation solutions and improving test reliability across projects.
+I’m Suraj Bhalerao, a QA Automation Engineer with around 1.6+ years of experience working on Java-based Selenium automation and API testing. Currently, I work at Accolade Electronics Pvt Ltd, where I focus on creating scalable automation solutions and improving test reliability across projects.
 
 My day-to-day work includes designing TestNG automation frameworks, automating complete UI regression flows, and validating backend APIs using Postman. I’ve also integrated automation runs into CI/CD pipelines with GitHub Actions, helping teams catch issues earlier and reduce repetitive manual testing.
 
@@ -121,7 +114,6 @@ Suraj Bhalerao
 """
 ]
 
-# ---------- SMTP SETUP ------------------
 context = ssl.create_default_context()
 
 with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
@@ -163,6 +155,5 @@ with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
         delay = random.randint(DELAY_MIN, DELAY_MAX)
         time.sleep(delay)
 
-# Move the Excel file to isSent folder after completion
 shutil.move(EXCEL_PATH, os.path.join("isSent", os.path.basename(EXCEL_PATH)))
 print(f"Moved {EXCEL_PATH} to isSent folder.")
