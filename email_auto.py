@@ -123,7 +123,7 @@ with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
     sheet = wb.active
     
     if sheet is None:
-        print("Error: No active sheet found in the workbook.")
+        print("Error: No active sheet found in the workbook. demo")
         exit()
 
     for row in sheet.iter_rows(min_row=2, values_only=True):
