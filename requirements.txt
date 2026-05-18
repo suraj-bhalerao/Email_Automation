@@ -2,3 +2,4 @@ openpyxl
 python-dotenv
 bs4
 requests
+pandas
