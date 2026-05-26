@@ -30,23 +30,21 @@ if not RESUME_PATH:
     print("Error: RESUME_PATH environment variable is not set.")
     exit(1)
 
-DELAY_MIN = 15    
-DELAY_MAX = 120    
+DELAY_MIN = 15
+DELAY_MAX = 120
 
 SUBJECTS = [
-    "Application for QA Automation Engineer | Java & Selenium",
+    "Application for QA Automation Engineer",
     "Automation Test Engineer",
     "QA Automation Test Engineer",
     "Application for QA Automation Engineer Role",
 ]
 
 BODIES = [
-"""
+    """
 Hi,
 
-I hope you’re having a good day.
-
-I am Suraj Bhalerao, and I’m a QA Automation Engineer  with around  1.6+ years of hands-on experience  in Java-based Selenium automation and API testing. I’m currently working with  Accolade Electronics Pvt Ltd , where I focus on building scalable automation frameworks and improving overall test reliability.
+I am Suraj Bhalerao, and I’m a QA Automation Engineer  with around  2+ years of hands-on experience  in Java-based Selenium automation and API testing. I’m currently working with  Accolade Electronics Pvt Ltd , where I focus on building scalable automation frameworks and improving overall test reliability.
 
 In my current role, I design  TestNG-based automation frameworks , automate end-to-end  UI regression suites, and validate backend APIs using  Postman . I’ve also integrated automation pipelines with  CI/CD (GitHub Actions)  and enjoy working on solutions that reduce manual effort and improve release confidence.
 
@@ -66,12 +64,10 @@ Thank you for your time and consideration.
 Warm regards,
 Suraj Bhalerao 
 """,
-"""
+    """
 Hello,
 
-I hope you’re doing well.
-
-My name is Suraj Bhalerao, and I’m a QA Automation Engineer with 1.6+ years of hands-on experience in Selenium-based automation using Java, along with API testing experience. I’m currently working with Accolade Electronics Pvt Ltd, where I contribute to building robust automation frameworks and improving testing efficiency.
+My name is Suraj Bhalerao, and I’m a QA Automation Engineer with 2+ years of hands-on experience in Selenium-based automation using Java, along with API testing experience. I’m currently working with Accolade Electronics Pvt Ltd, where I contribute to building robust automation frameworks and improving testing efficiency.
 
 My experience includes developing TestNG automation frameworks, executing end-to-end UI regression automation, validating APIs through Postman, and integrating automation with CI/CD pipelines via GitHub Actions. I enjoy working on automation solutions that enhance product quality and reduce manual effort.
 
@@ -88,12 +84,10 @@ I’d be glad to connect if there’s a suitable opportunity.
 Kind regards,
 Suraj Bhalerao
 """,
-"""
+    """
 Hi,
 
-I hope you’re having a great day.
-
-I’m Suraj Bhalerao, a QA Automation Engineer with around 1.6+ years of experience working on Java-based Selenium automation and API testing. Currently, I work at Accolade Electronics Pvt Ltd, where I focus on creating scalable automation solutions and improving test reliability across projects.
+I’m Suraj Bhalerao, a QA Automation Engineer with around 2+ years of experience working on Java-based Selenium automation and API testing. Currently, I work at Accolade Electronics Pvt Ltd, where I focus on creating scalable automation solutions and improving test reliability across projects.
 
 My day-to-day work includes designing TestNG automation frameworks, automating complete UI regression flows, and validating backend APIs using Postman. I’ve also integrated automation runs into CI/CD pipelines with GitHub Actions, helping teams catch issues earlier and reduce repetitive manual testing.
 
@@ -111,7 +105,7 @@ Thank you for your time.
 
 Best regards,
 Suraj Bhalerao
-"""
+""",
 ]
 
 context = ssl.create_default_context()
@@ -121,7 +115,7 @@ with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
 
     wb = load_workbook(EXCEL_PATH)
     sheet = wb.active
-    
+
     if sheet is None:
         print("Error: No active sheet found in the workbook. demo")
         exit()
@@ -143,7 +137,7 @@ with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
                 f.read(),
                 maintype="application",
                 subtype="pdf",
-                filename="Suraj_Bhalerao_QA_Automation_Resume.pdf"
+                filename="Suraj_Bhalerao_QA_Automation_Resume.pdf",
             )
 
         try:
