@@ -123,8 +123,30 @@ with smtplib.SMTP_SSL("smtp.gmail.com", 465, context=context) as server:
     for row in sheet.iter_rows(min_row=2, values_only=True):
         to_email = row[0]
 
-        subject = random.choice(SUBJECTS)
-        body = random.choice(BODIES)
+        # subject = random.choice(SUBJECTS)
+        subject = "Java, Selenium WebDriver, TestNG, Postman, GitHub Actions, API Testing, CI/CD, Automation Framework Design - QA Automation Engineer Resume - Suraj Bhalerao - ~2 years experience"
+
+        # body = random.choice(BODIES)
+        body = """
+            ✓ First Name : Suraj
+            ✓ Last Name : Bhalerao
+            ✓ Skills : Java, Selenium WebDriver, TestNG, Postman, GitHub Actions, API Testing, CI/CD, Automation Framework Design
+            ✓ Exp : ~2 years
+            ✓ DOB : 27th August 1999
+            ✓ Email : surajbhalerao2024@gmail.com
+            ✓ 2nd Email : bhaleraosurajsa@gmail.com
+            ✓ Phone No. : +91 9730922327
+            ✓ 2nd Phone No. : nil
+            ✓ Location : Pune, India
+            ✓ Prev. Org : Accolade Electronics Pvt Ltd
+            ✓ Notice Period  : 1 month
+            ✓ Resume with DOB mentioned attachment: Yes
+
+
+            Thanks and Regards,
+            Suraj Bhalerao
+                
+            """
 
         msg = EmailMessage()
         msg["From"] = SENDER_EMAIL
